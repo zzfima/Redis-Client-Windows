@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisClient.Test", "RedisCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisClient.MVVMCross", "RedisClient.MVVMCross\RedisClient.MVVMCross.csproj", "{ACB228C2-84B8-46B7-B154-AB2C47FC7594}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisClient.Core", "RedisClient.Core\RedisClient.Core.csproj", "{B580413D-67B4-4F3F-B295-4D1BA6BD0199}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ACB228C2-84B8-46B7-B154-AB2C47FC7594}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACB228C2-84B8-46B7-B154-AB2C47FC7594}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACB228C2-84B8-46B7-B154-AB2C47FC7594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B580413D-67B4-4F3F-B295-4D1BA6BD0199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B580413D-67B4-4F3F-B295-4D1BA6BD0199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B580413D-67B4-4F3F-B295-4D1BA6BD0199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B580413D-67B4-4F3F-B295-4D1BA6BD0199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
