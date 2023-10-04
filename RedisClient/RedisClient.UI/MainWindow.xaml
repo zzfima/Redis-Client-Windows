@@ -25,12 +25,9 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <view:ConnectionView Grid.Column="0" Grid.Row="0" Margin="10" DataContext="{Binding ConnectionViewModel}"/>
-            <view:ServerStatusView Grid.Column="1" Grid.Row="0" Margin="10" DataContext="{Binding ServerStatusViewModel}"/>
+            <view:ServerStatusView Grid.Column="0" Grid.Row="1" Margin="10" DataContext="{Binding ServerStatusViewModel}"/>
         </Grid>
-        <view:ServerStatusView DockPanel.Dock="Bottom" DataContext="{Binding ServerStatusViewModel}"/>
     </DockPanel>
 </Window>

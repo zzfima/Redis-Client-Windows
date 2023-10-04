@@ -22,21 +22,8 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label>Port:</Label>
-                <TextBox >
-                    <TextBox.Text>
-                        <Binding Path=" Port" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <validators:PortValidation />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Button Margin="2" Command="{Binding Path=TestConnectionCommand}">Test connection</Button>
                 <Button Margin="2" Command="{Binding Path=ConnectCommand}">Connect</Button>
+                <Button Margin="2" Command="{Binding Path=DisconnectCommand}">Disconnect</Button>
             </StackPanel>
         </StackPanel>
     </GroupBox>

@@ -4,7 +4,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d">
-    <Grid>
-        <Label Content="{Binding ServerAlive}"/>
-    </Grid>
+    <GroupBox Header="Server status">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Label Margin="0 0 5 0">Server connection status:</Label>
+                <Label Content="{Binding IsConnected}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Label Margin="0 0 5 0">Server version:</Label>
+                <Label Content="{Binding ServerVersion}"/>
+            </StackPanel>
+        </Grid>
+    </GroupBox>
 </UserControl>

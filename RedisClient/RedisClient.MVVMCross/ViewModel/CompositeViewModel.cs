@@ -1,4 +1,5 @@
 ﻿using MvvmCross;
+using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
 
 namespace RedisClient.MVVMCross.ViewModel

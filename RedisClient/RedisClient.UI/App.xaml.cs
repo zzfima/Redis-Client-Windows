@@ -1,5 +1,7 @@
 ﻿using MvvmCross.Base;
 using MvvmCross.IoC;
+using MvvmCross.Plugin.Messenger;
+using RedisClient.Core;
 using RedisClient.MVVMCross.ViewModel;
 using System.Windows;
 
@@ -20,6 +22,11 @@ namespace RedisClient.UI
 		private void ConfigureServices()
 		{
 			var instance = MvxIoCProvider.Initialize();
+
+			//Core
+			instance.ConstructAndRegisterSingleton<IMvxMessenger, MvxMessengerHub>();
+			instance.ConstructAndRegisterSingleton<IRedisServerConnector, RedisServerConnector>();
+			instance.ConstructAndRegisterSingleton<ICacheServerMetricsReader, CacheServerMetricsReader>();
 
 			//ViewModels
 			instance.ConstructAndRegisterSingleton(typeof(ConnectionViewModel));

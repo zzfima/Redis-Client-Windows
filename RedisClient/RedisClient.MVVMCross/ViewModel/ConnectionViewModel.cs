@@ -1,6 +1,9 @@
-﻿using MvvmCross.Commands;
+﻿using MvvmCross;
+using MvvmCross.Commands;
+using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
-using System.Windows;
+using RedisClient.Core;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RedisClient.MVVMCross.ViewModel
@@ -9,19 +12,19 @@ namespace RedisClient.MVVMCross.ViewModel
 	{
 		#region Fields
 		private string? _ipAddress;
-		private int _port;
-		private bool _isConnectionOk;
+		private IMvxMessenger? _messenger;
+		private IRedisServerConnector? _redisServerConnector;
 		#endregion
 
 		#region Ctor
-		public ConnectionViewModel()
+		public ConnectionViewModel(IMvxMessenger messenger)
 		{
-			IpAddress = "127.0.0.1";
-			Port = 7778;
-			IsConnectionOk = false;
+			IpAddress = "172.18.179.119";
+			_messenger = messenger;
+			_redisServerConnector = Mvx.IoCProvider?.Resolve<IRedisServerConnector>();
 
-			TestConnectionCommand = new MvxCommand(TestConnection);
-			ConnectCommand = new CustomRelayCommand((o) => IsConnectionOk == true, Connect);
+			ConnectCommand = new MvxCommand(async () => await Connect());
+			DisconnectCommand = new MvxCommand(async () => await Disconnect());
 		}
 		#endregion
 
@@ -32,33 +35,24 @@ namespace RedisClient.MVVMCross.ViewModel
 			set => SetProperty(ref _ipAddress, value);
 		}
 
-		public int Port
-		{
-			get => _port;
-			set => SetProperty(ref _port, value);
-		}
+		public IMvxCommand ConnectCommand { get; }
+		public IMvxCommand DisconnectCommand { get; }
 
-		public bool IsConnectionOk
-		{
-			get => _isConnectionOk;
-			set => SetProperty(ref _isConnectionOk, value);
-		}
-
-		public IMvxCommand TestConnectionCommand { get; }
-		public ICommand ConnectCommand { get; }
 		#endregion
 
-
 		#region Event Handlers
-		private void Connect(object o)
+		private async Task Connect()
 		{
-			IsConnectionOk = false;
+			await _redisServerConnector?.ConnectAsync(IpAddress);
+			_messenger?.Publish<ConnectionChanged>(new ConnectionChanged(this));
 		}
 
-		private void TestConnection()
+		private async Task Disconnect()
 		{
-			IsConnectionOk = true;
+			await _redisServerConnector?.DisconnectAsync();
+			_messenger?.Publish<ConnectionChanged>(new ConnectionChanged(this));
 		}
+
 		#endregion
 	}
 }
