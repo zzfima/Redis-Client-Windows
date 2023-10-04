@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:RedisClient.MVVMCross.View;assembly=RedisClient.MVVMCross"
         mc:Ignorable="d"
+        Width="350"
+        Height="500"
         Title="MainWindow">
     <Window.Resources>
         <ResourceDictionary>
