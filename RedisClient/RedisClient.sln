@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisClient", "RedisClient\RedisClient.csproj", "{CE0487A4-B1B6-420E-8C08-38260C54764B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisClient.UI", "RedisClient.UI\RedisClient.UI.csproj", "{A199C731-7BF9-4008-9513-54C35890F67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisClient.Test", "RedisClient.Test\RedisClient.Test.csproj", "{81E12265-4F85-4454-A03D-5820CA64755E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisClient.MVVMCross", "RedisClient.MVVMCross\RedisClient.MVVMCross.csproj", "{ACB228C2-84B8-46B7-B154-AB2C47FC7594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CE0487A4-B1B6-420E-8C08-38260C54764B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE0487A4-B1B6-420E-8C08-38260C54764B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE0487A4-B1B6-420E-8C08-38260C54764B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE0487A4-B1B6-420E-8C08-38260C54764B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A199C731-7BF9-4008-9513-54C35890F67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A199C731-7BF9-4008-9513-54C35890F67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A199C731-7BF9-4008-9513-54C35890F67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A199C731-7BF9-4008-9513-54C35890F67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E12265-4F85-4454-A03D-5820CA64755E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E12265-4F85-4454-A03D-5820CA64755E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E12265-4F85-4454-A03D-5820CA64755E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E12265-4F85-4454-A03D-5820CA64755E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB228C2-84B8-46B7-B154-AB2C47FC7594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB228C2-84B8-46B7-B154-AB2C47FC7594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB228C2-84B8-46B7-B154-AB2C47FC7594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB228C2-84B8-46B7-B154-AB2C47FC7594}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

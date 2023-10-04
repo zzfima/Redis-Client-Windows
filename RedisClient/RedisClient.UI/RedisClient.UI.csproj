@@ -2,14 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MvvmCross" Version="9.1.1" />
-    <PackageReference Include="MvvmCross.Plugin.Messenger" Version="9.1.1" />
+    <ProjectReference Include="..\RedisClient.MVVMCross\RedisClient.MVVMCross.csproj" />
   </ItemGroup>
 
 </Project>
