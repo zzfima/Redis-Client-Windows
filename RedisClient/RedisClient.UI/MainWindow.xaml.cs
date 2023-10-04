@@ -13,7 +13,7 @@ namespace RedisClient.UI
 		{
 			InitializeComponent();
 
-			DataContext = Mvx.IoCProvider.Resolve<CompositeViewModel>();
+			DataContext = Mvx.IoCProvider?.Resolve<CompositeViewModel>();
 		}
 	}
 }

@@ -14,20 +14,23 @@ namespace RedisClient.MVVMCross
 			_execute = execute;
 		}
 
-		public event EventHandler CanExecuteChanged
+		public event EventHandler? CanExecuteChanged
 		{
 			add => CommandManager.RequerySuggested += value;
 			remove => CommandManager.RequerySuggested -= value;
 		}
 
-		public bool CanExecute(object parameter)
+		public bool CanExecute(object? parameter)
 		{
-			return _canExecute(parameter);
+			if (parameter != null)
+				return _canExecute(parameter);
+			return false;
 		}
 
-		public void Execute(object parameter)
+		public void Execute(object? parameter)
 		{
-			_execute(parameter);
+			if (parameter != null)
+				_execute(parameter);
 		}
 	}
 }

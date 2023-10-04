@@ -10,7 +10,7 @@ namespace RedisClient.UI
 	/// </summary>
 	public partial class App : Application
 	{
-		public static IMvxIoCProvider IoCProvider => MvxSingleton<IMvxIoCProvider>.Instance;
+		public static IMvxIoCProvider? IoCProvider => MvxSingleton<IMvxIoCProvider>.Instance;
 
 		public App()
 		{
