@@ -23,6 +23,7 @@ namespace RedisClient.UI
 
 			//ViewModels
 			instance.ConstructAndRegisterSingleton(typeof(ConnectionViewModel));
+			instance.ConstructAndRegisterSingleton(typeof(ServerStatusViewModel));
 			instance.ConstructAndRegisterSingleton(typeof(CompositeViewModel));
 		}
 	}
