@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MvvmCross.Base;
+using MvvmCross.IoC;
+using RedisClient.MVVMCross.ViewModel;
 using System.Windows;
 
 namespace RedisClient.UI
@@ -13,5 +10,20 @@ namespace RedisClient.UI
 	/// </summary>
 	public partial class App : Application
 	{
+		public static IMvxIoCProvider IoCProvider => MvxSingleton<IMvxIoCProvider>.Instance;
+
+		public App()
+		{
+			ConfigureServices();
+		}
+
+		private void ConfigureServices()
+		{
+			var instance = MvxIoCProvider.Initialize();
+
+			//ViewModels
+			instance.ConstructAndRegisterSingleton(typeof(ConnectionViewModel));
+			instance.ConstructAndRegisterSingleton(typeof(CompositeViewModel));
+		}
 	}
 }

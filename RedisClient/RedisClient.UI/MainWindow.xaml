@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:RedisClient.MVVMCross.View;assembly=RedisClient.MVVMCross"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,6 +17,16 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <view:ConnectionView Width="300"></view:ConnectionView>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <view:ConnectionView Grid.Column="0" Grid.Row="0" Margin="10" DataContext="{Binding ConnectionViewModel}"/>
     </Grid>
 </Window>
