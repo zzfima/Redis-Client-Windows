@@ -12,7 +12,5 @@ namespace RedisClient.Core
 		public async Task DisconnectAsync() => await Connection.DisposeAsync();
 
 		public ConnectionMultiplexer? Connection { get; private set; }
-
-		public bool? IsConnected => Connection?.IsConnected;
 	}
 }

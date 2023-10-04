@@ -11,9 +11,13 @@ namespace RedisClient.Test
 			IRedisServerConnector redisServerConnector = new RedisServerConnector();
 			Assert.IsNotNull(redisServerConnector);
 			await redisServerConnector.ConnectAsync("172.18.179.119");
-			Assert.IsTrue(redisServerConnector.IsConnected);
+
+			ICacheServerMetricsReader cacheServerMetricsReader = new CacheServerMetricsReader();
+			cacheServerMetricsReader.Init(redisServerConnector);
+
+			Assert.IsTrue(cacheServerMetricsReader.IsConnected);
 			await redisServerConnector.DisconnectAsync();
-			Assert.IsFalse(redisServerConnector.IsConnected);
+			Assert.IsFalse(cacheServerMetricsReader.IsConnected);
 		}
 
 		[TestMethod]
