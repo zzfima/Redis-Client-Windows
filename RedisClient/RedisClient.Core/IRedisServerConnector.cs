@@ -7,7 +7,7 @@ namespace RedisClient.Core
 		ConnectionMultiplexer? Connection { get; }
 		bool? IsConnected { get; }
 
-		void Connect(string configuration);
-		void Disconnect();
+		Task ConnectAsync(string configuration);
+		Task DisconnectAsync();
 	}
 }

@@ -4,12 +4,12 @@ namespace RedisClient.Core
 {
 	public sealed class RedisServerConnector : IRedisServerConnector
 	{
-		public void Connect(string configuration)
+		public async Task ConnectAsync(string configuration)
 		{
-			Connection = ConnectionMultiplexer.Connect(configuration);
+			Connection = await ConnectionMultiplexer.ConnectAsync(configuration);
 		}
 
-		public void Disconnect() => Connection?.Dispose();
+		public async Task DisconnectAsync() => await Connection.DisposeAsync();
 
 		public ConnectionMultiplexer? Connection { get; private set; }
 

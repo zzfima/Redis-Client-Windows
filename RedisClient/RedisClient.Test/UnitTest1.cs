@@ -6,13 +6,13 @@ namespace RedisClient.Test
 	public class UnitTest1
 	{
 		[TestMethod]
-		public void TestRedisConnection()
+		public async Task TestRedisConnection()
 		{
 			IRedisServerConnector redisServerConnector = new RedisServerConnector();
 			Assert.IsNotNull(redisServerConnector);
-			redisServerConnector.Connect("172.18.179.119");
+			await redisServerConnector.ConnectAsync("172.18.179.119");
 			Assert.IsTrue(redisServerConnector.IsConnected);
-			redisServerConnector.Disconnect();
+			await redisServerConnector.DisconnectAsync();
 			Assert.IsFalse(redisServerConnector.IsConnected);
 		}
 	}
