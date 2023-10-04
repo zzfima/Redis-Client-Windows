@@ -3,6 +3,6 @@
 	public interface ICacheReader
 	{
 		void Init(IRedisServerConnector redisServerConnector);
-		string? Get(string key);
+		Task<string> GetAsync(string key);
 	}
 }
