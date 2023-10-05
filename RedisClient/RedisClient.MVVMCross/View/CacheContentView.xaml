@@ -4,11 +4,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d">
-    <GroupBox Header="Connection">
+    <GroupBox Header="Cache keys/values">
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Button Margin="2" Command="{Binding Path=RefreshCommand}" Width="100">Refresh</Button>
                 <Button Margin="2" Command="{Binding Path=DeleteCommand}" Width="100">Delete</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBox Margin="2" Text="{Binding Path=KeyToAdd}" Width="50"/>
+                <TextBox Margin="2" Text="{Binding Path=ValueToAdd}" Width="50"/>
+                <Button Margin="2" Command="{Binding Path=AddCommand}" Width="120">Add to cache</Button>
             </StackPanel>
 
             <ListBox ItemsSource="{Binding Path=CacheContent}"

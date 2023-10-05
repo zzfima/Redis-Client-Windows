@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:RedisClient.MVVMCross.View;assembly=RedisClient.MVVMCross"
         mc:Ignorable="d"
-        Width="350"
+        ResizeMode="NoResize"
+        Width="750"
         Height="500"
         Title="MainWindow">
     <Window.Resources>
@@ -18,19 +19,17 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <DockPanel>
-        <Grid DockPanel.Dock="Top">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <view:ConnectionView Grid.Column="0" Grid.Row="0" Margin="10" DataContext="{Binding ConnectionViewModel}"/>
-            <view:ServerStatusView Grid.Column="0" Grid.Row="1" Margin="10" DataContext="{Binding ServerStatusViewModel}"/>
-            <view:CacheContentView Grid.Column="0" Grid.Row="2" Margin="10" DataContext="{Binding CacheContentViewModel}"/>
-        </Grid>
-    </DockPanel>
+    <Grid DockPanel.Dock="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <view:ConnectionView Grid.Column="0" Grid.Row="0" Margin="10" DataContext="{Binding ConnectionViewModel}"/>
+        <view:ServerStatusView Grid.Column="0" Grid.Row="1" Margin="10" DataContext="{Binding ServerStatusViewModel}"/>
+        <view:CacheContentView Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="10" DataContext="{Binding CacheContentViewModel}"/>
+    </Grid>
 </Window>

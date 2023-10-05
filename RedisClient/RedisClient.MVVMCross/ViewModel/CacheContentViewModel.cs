@@ -12,8 +12,10 @@ namespace RedisClient.MVVMCross.ViewModel
 		#region Fields
 		private readonly ICacheReader _cacheReader;
 		private readonly ICacheWriter _cacheWriter;
+		private string? _keyToAdd;
 		private MvxObservableCollection<KeyValuePair<RedisKey, RedisValue>> _cacheContent;
 		private KeyValuePair<RedisKey, RedisValue> _selectedCacheContent;
+		private string? _valueToAdd;
 		#endregion
 
 		#region Ctor
@@ -24,11 +26,13 @@ namespace RedisClient.MVVMCross.ViewModel
 			CacheContent = new MvxObservableCollection<KeyValuePair<RedisKey, RedisValue>>();
 			RefreshCommand = new MvxCommand(async () => await Refresh());
 			DeleteCommand = new MvxCommand(async () => await Delete());
+			AddCommand = new MvxCommand(async () => await Add());
 		}
 		#endregion
 
 		public IMvxCommand RefreshCommand { get; }
 		public IMvxCommand DeleteCommand { get; }
+		public IMvxCommand AddCommand { get; }
 
 		private async Task Refresh()
 		{
@@ -48,6 +52,12 @@ namespace RedisClient.MVVMCross.ViewModel
 			await Refresh();
 		}
 
+		private async Task Add()
+		{
+			await _cacheWriter.SetAsync(KeyToAdd, ValueToAdd);
+			await Refresh();
+		}
+
 		public KeyValuePair<RedisKey, RedisValue> SelectedCacheContent
 		{
 			get => _selectedCacheContent;
@@ -58,6 +68,17 @@ namespace RedisClient.MVVMCross.ViewModel
 		{
 			get => _cacheContent;
 			set => SetProperty(ref _cacheContent, value);
+		}
+		public string? KeyToAdd
+		{
+			get => _keyToAdd;
+			set => SetProperty(ref _keyToAdd, value);
+		}
+
+		public string? ValueToAdd
+		{
+			get => _valueToAdd;
+			set => SetProperty(ref _valueToAdd, value);
 		}
 	}
 }
