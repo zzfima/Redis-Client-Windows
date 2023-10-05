@@ -1,21 +1,26 @@
 ﻿using StackExchange.Redis;
-using System.Net;
 
 namespace RedisClient.Core
 {
 	public sealed class RedisServerConnector : IRedisServerConnector
 	{
-		public async Task ConnectAsync(string ipAddress)
+		#region Ctor
+		public async Task ConnectAsync(string ipAddress, int port)
 		{
 			IPAddress = ipAddress;
-			Connection = await ConnectionMultiplexer.ConnectAsync(IPAddress);
+			Port = port;
+			Connection = await ConnectionMultiplexer.ConnectAsync($"{IPAddress}:{Port}");
 		}
+		#endregion
 
-
-		public async Task DisconnectAsync() => await Connection.DisposeAsync();
-
+		#region Properties
 		public ConnectionMultiplexer? Connection { get; private set; }
-
 		public string? IPAddress { get; private set; }
+		public int? Port { get; private set; }
+		#endregion
+
+		#region Methods
+		public async Task DisconnectAsync() => await Connection.DisposeAsync();
+		#endregion
 	}
 }
