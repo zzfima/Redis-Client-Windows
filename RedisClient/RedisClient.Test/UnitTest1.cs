@@ -35,12 +35,12 @@ namespace RedisClient.Test
 			await cacheWriter.SetAsync("hello11", "world11");
 			var res1 = await cacheReader.GetAsync("hello11");
 
-			Assert.AreEqual("world11", res1);
+			Assert.AreEqual("world11", res1.ToString());
 
 			await cacheWriter.RemoveAsync("hello11");
 
 			var res2 = await cacheReader.GetAsync("hello11");
-			Assert.IsNull(res2);
+			Assert.IsFalse(res2.HasValue);
 
 			await redisServerConnector.DisconnectAsync();
 		}

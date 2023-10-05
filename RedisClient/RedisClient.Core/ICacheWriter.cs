@@ -1,9 +1,11 @@
-﻿namespace RedisClient.Core
+﻿using StackExchange.Redis;
+
+namespace RedisClient.Core
 {
 	public interface ICacheWriter
 	{
-		Task RemoveAsync(string key);
+		Task RemoveAsync(RedisKey key);
 		void Init(IRedisServerConnector redisServerConnector);
-		Task SetAsync(string key, string value);
+		Task SetAsync(RedisKey key, RedisValue value);
 	}
 }
