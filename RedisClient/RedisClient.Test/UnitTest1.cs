@@ -12,8 +12,7 @@ namespace RedisClient.Test
 			Assert.IsNotNull(redisServerConnector);
 			await redisServerConnector.ConnectAsync("172.18.179.119", 6379);
 
-			ICacheServerMetricsReader cacheServerMetricsReader = new CacheServerMetricsReader();
-			cacheServerMetricsReader.Init(redisServerConnector);
+			ICacheServerMetricsReader cacheServerMetricsReader = new CacheServerMetricsReader(redisServerConnector);
 
 			Assert.IsTrue(cacheServerMetricsReader.IsConnected);
 			await redisServerConnector.DisconnectAsync();
@@ -26,11 +25,8 @@ namespace RedisClient.Test
 			IRedisServerConnector redisServerConnector = new RedisServerConnector();
 			await redisServerConnector.ConnectAsync("172.18.179.119", 6379);
 
-			ICacheWriter cacheWriter = new CacheWriter();
-			ICacheReader cacheReader = new CacheReader();
-
-			cacheWriter.Init(redisServerConnector);
-			cacheReader.Init(redisServerConnector);
+			ICacheWriter cacheWriter = new CacheWriter(redisServerConnector);
+			ICacheReader cacheReader = new CacheReader(redisServerConnector);
 
 			await cacheWriter.SetAsync("hello11", "world11");
 			var res1 = await cacheReader.GetAsync("hello11");
@@ -51,11 +47,8 @@ namespace RedisClient.Test
 			IRedisServerConnector redisServerConnector = new RedisServerConnector();
 			await redisServerConnector.ConnectAsync("172.18.179.119", 6379);
 
-			ICacheWriter cacheWriter = new CacheWriter();
-			ICacheReader cacheReader = new CacheReader();
-
-			cacheWriter.Init(redisServerConnector);
-			cacheReader.Init(redisServerConnector);
+			ICacheWriter cacheWriter = new CacheWriter(redisServerConnector);
+			ICacheReader cacheReader = new CacheReader(redisServerConnector);
 
 			await cacheWriter.SetAsync("hello11", "world11");
 			await cacheWriter.SetAsync("hello12", "world12");

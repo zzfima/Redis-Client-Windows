@@ -23,8 +23,6 @@ namespace RedisClient.MVVMCross.ViewModel
 
 			_redisServerConnector = redisServerConnector;
 			_cacheServerMetricsReader = cacheServerMetricsReader;
-			if (_redisServerConnector != null)
-				_cacheServerMetricsReader?.Init(_redisServerConnector);
 
 			_messenger = messenger;
 			_tokenWindowHelp = _messenger?.Subscribe<ConnectionChanged>(

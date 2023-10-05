@@ -4,19 +4,17 @@ namespace RedisClient.Core
 {
 	public sealed class CacheWriter : ICacheWriter
 	{
-		#region Fields
-		private IDatabase? _database;
-		#endregion
+		private readonly IRedisServerConnector _redisServerConnector;
 
-		#region Methods
-		public async Task RemoveAsync(RedisKey key) => await (_database?.KeyDeleteAsync(key) ?? Task.CompletedTask);
-
-		public void Init(IRedisServerConnector redisServerConnector)
+		public CacheWriter(IRedisServerConnector redisServerConnector)
 		{
-			_database = redisServerConnector?.Connection?.GetDatabase();
+			_redisServerConnector = redisServerConnector;
 		}
 
-		public async Task SetAsync(RedisKey key, RedisValue value) => await (_database?.StringSetAsync(key, value) ?? Task.CompletedTask);
+		#region Methods
+		public async Task RemoveAsync(RedisKey key) => await (_redisServerConnector?.Connection?.GetDatabase()?.KeyDeleteAsync(key) ?? Task.CompletedTask);
+
+		public async Task SetAsync(RedisKey key, RedisValue value) => await (_redisServerConnector?.Connection?.GetDatabase()?.StringSetAsync(key, value) ?? Task.CompletedTask);
 		#endregion
 	}
 }

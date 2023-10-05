@@ -8,6 +8,5 @@ namespace RedisClient.Core
 		Version? ServerVersion { get; }
 		public ServerType? ServerType { get; }
 		public int? DatabaseCount { get; }
-		void Init(IRedisServerConnector redisServerConnector);
 	}
 }

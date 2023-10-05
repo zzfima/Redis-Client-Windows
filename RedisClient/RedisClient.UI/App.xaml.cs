@@ -27,6 +27,8 @@ namespace RedisClient.UI
 			instance.ConstructAndRegisterSingleton<IMvxMessenger, MvxMessengerHub>();
 			instance.ConstructAndRegisterSingleton<IRedisServerConnector, RedisServerConnector>();
 			instance.ConstructAndRegisterSingleton<ICacheServerMetricsReader, CacheServerMetricsReader>();
+			instance.ConstructAndRegisterSingleton<ICacheWriter, CacheWriter>();
+			instance.ConstructAndRegisterSingleton<ICacheReader, CacheReader>();
 
 			//ViewModels
 			instance.ConstructAndRegisterSingleton(typeof(ConnectionViewModel));
