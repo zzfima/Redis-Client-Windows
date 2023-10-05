@@ -49,13 +49,13 @@ namespace RedisClient.MVVMCross.ViewModel
 		#region Event Handlers
 		private async Task Connect()
 		{
-			await _redisServerConnector?.ConnectAsync(IpAddress, Port);
+			await (_redisServerConnector?.ConnectAsync(IpAddress ?? "", Port) ?? Task.CompletedTask);
 			_messenger?.Publish<ConnectionChanged>(new ConnectionChanged(this));
 		}
 
 		private async Task Disconnect()
 		{
-			await _redisServerConnector?.DisconnectAsync();
+			await (_redisServerConnector?.DisconnectAsync() ?? Task.CompletedTask);
 			_messenger?.Publish<ConnectionChanged>(new ConnectionChanged(this));
 		}
 

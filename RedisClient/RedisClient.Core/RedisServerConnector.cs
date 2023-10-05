@@ -4,15 +4,6 @@ namespace RedisClient.Core
 {
 	public sealed class RedisServerConnector : IRedisServerConnector
 	{
-		#region Ctor
-		public async Task ConnectAsync(string ipAddress, int port)
-		{
-			IPAddress = ipAddress;
-			Port = port;
-			Connection = await ConnectionMultiplexer.ConnectAsync($"{IPAddress}:{Port}");
-		}
-		#endregion
-
 		#region Properties
 		public ConnectionMultiplexer? Connection { get; private set; }
 		public string? IPAddress { get; private set; }
@@ -20,7 +11,14 @@ namespace RedisClient.Core
 		#endregion
 
 		#region Methods
-		public async Task DisconnectAsync() => await Connection.DisposeAsync();
+		public async Task DisconnectAsync() => await (Connection?.DisposeAsync() ?? ValueTask.CompletedTask);
+
+		public async Task ConnectAsync(string ipAddress, int port)
+		{
+			IPAddress = ipAddress;
+			Port = port;
+			Connection = await ConnectionMultiplexer.ConnectAsync($"{IPAddress}:{Port}");
+		}
 		#endregion
 	}
 }
