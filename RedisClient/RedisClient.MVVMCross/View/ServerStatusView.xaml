@@ -9,6 +9,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0">
                 <Label Margin="0 0 5 0">Server connection status:</Label>
@@ -17,6 +19,14 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1">
                 <Label Margin="0 0 5 0">Server version:</Label>
                 <Label Content="{Binding ServerVersion}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <Label Margin="0 0 5 0">Database Count:</Label>
+                <Label Content="{Binding DatabaseCount}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Label Margin="0 0 5 0">Server type:</Label>
+                <Label Content="{Binding ServerType}"/>
             </StackPanel>
         </Grid>
     </GroupBox>

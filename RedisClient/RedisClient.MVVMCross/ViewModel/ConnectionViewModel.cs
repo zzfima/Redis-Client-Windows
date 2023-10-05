@@ -1,10 +1,8 @@
-﻿using MvvmCross;
-using MvvmCross.Commands;
+﻿using MvvmCross.Commands;
 using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
 using RedisClient.Core;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace RedisClient.MVVMCross.ViewModel
 {
@@ -18,12 +16,12 @@ namespace RedisClient.MVVMCross.ViewModel
 		#endregion
 
 		#region Ctor
-		public ConnectionViewModel(IMvxMessenger messenger)
+		public ConnectionViewModel(IMvxMessenger messenger, IRedisServerConnector redisServerConnector)
 		{
 			IpAddress = "172.18.179.119";
 			Port = 6379;
 			_messenger = messenger;
-			_redisServerConnector = Mvx.IoCProvider?.Resolve<IRedisServerConnector>();
+			_redisServerConnector = redisServerConnector;
 
 			ConnectCommand = new MvxCommand(async () => await Connect());
 			DisconnectCommand = new MvxCommand(async () => await Disconnect());

@@ -6,22 +6,20 @@ namespace RedisClient.MVVMCross.ViewModel
 {
 	public sealed class CompositeViewModel : MvxViewModel
 	{
+		#region Fields
 		private ConnectionViewModel? _connectionViewModel;
 		private ServerStatusViewModel? _serverStatusViewModel;
+		#endregion
 
-		public CompositeViewModel()
+		#region Ctor
+		public CompositeViewModel(ConnectionViewModel connectionViewModel, ServerStatusViewModel serverStatusViewMode)
 		{
-			InstantiateViewModel();
+			_connectionViewModel = connectionViewModel;
+			_serverStatusViewModel = serverStatusViewMode;
 		}
-
-		private void InstantiateViewModel()
-		{
-			_connectionViewModel = Mvx.IoCProvider?.Resolve<ConnectionViewModel>();
-			_serverStatusViewModel = Mvx.IoCProvider?.Resolve<ServerStatusViewModel>();
-		}
+		#endregion
 
 		#region Dependency Properties
-
 		public ConnectionViewModel? ConnectionViewModel
 		{
 			get => _connectionViewModel;
