@@ -30,6 +30,7 @@
             </Grid.ColumnDefinitions>
             <view:ConnectionView Grid.Column="0" Grid.Row="0" Margin="10" DataContext="{Binding ConnectionViewModel}"/>
             <view:ServerStatusView Grid.Column="0" Grid.Row="1" Margin="10" DataContext="{Binding ServerStatusViewModel}"/>
+            <view:CacheContentView Grid.Column="0" Grid.Row="2" Margin="10" DataContext="{Binding CacheContentViewModel}"/>
         </Grid>
     </DockPanel>
 </Window>
