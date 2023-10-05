@@ -6,9 +6,14 @@
              mc:Ignorable="d">
     <GroupBox Header="Connection">
         <StackPanel>
-            <Button Margin="2" Command="{Binding Path=RefreshCommand}" Width="100" HorizontalAlignment="Left">Refresh</Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Margin="2" Command="{Binding Path=RefreshCommand}" Width="100">Refresh</Button>
+                <Button Margin="2" Command="{Binding Path=DeleteCommand}" Width="100">Delete</Button>
+            </StackPanel>
+
             <ListBox ItemsSource="{Binding Path=CacheContent}"
-                     IsHitTestVisible="False">
+                     SelectedItem="{Binding SelectedCacheContent}"
+                     IsHitTestVisible="True">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
