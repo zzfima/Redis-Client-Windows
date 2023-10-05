@@ -44,5 +44,36 @@ namespace RedisClient.Test
 
 			await redisServerConnector.DisconnectAsync();
 		}
+
+		[TestMethod]
+		public async Task TestRedisGetAllKeys()
+		{
+			IRedisServerConnector redisServerConnector = new RedisServerConnector();
+			await redisServerConnector.ConnectAsync("172.18.179.119", 6379);
+
+			ICacheWriter cacheWriter = new CacheWriter();
+			ICacheReader cacheReader = new CacheReader();
+
+			cacheWriter.Init(redisServerConnector);
+			cacheReader.Init(redisServerConnector);
+
+			await cacheWriter.SetAsync("hello11", "world11");
+			await cacheWriter.SetAsync("hello12", "world12");
+			await cacheWriter.SetAsync("hello13", "world13");
+
+			var res1 = await cacheReader.GetAllKeysAsync();
+
+			Assert.IsTrue(res1.Contains("hello11"));
+			Assert.IsTrue(res1.Contains("hello12"));
+			Assert.IsTrue(res1.Contains("hello13"));
+			Assert.IsFalse(res1.Contains("hello14"));
+
+			await cacheWriter.RemoveAsync("hello11");
+			await cacheWriter.RemoveAsync("hello12");
+			await cacheWriter.RemoveAsync("hello13");
+			await cacheWriter.RemoveAsync("hello14");
+
+			await redisServerConnector.DisconnectAsync();
+		}
 	}
 }
