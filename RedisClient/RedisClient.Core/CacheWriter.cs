@@ -12,9 +12,9 @@ namespace RedisClient.Core
 		}
 
 		#region Methods
-		public async Task RemoveAsync(RedisKey key) => await (_redisServerConnector?.Connection?.GetDatabase()?.KeyDeleteAsync(key) ?? Task.CompletedTask);
+		public async Task RemoveAsync(RedisKey key) => await _redisServerConnector.Connection.GetDatabase().KeyDeleteAsync(key);
 
-		public async Task SetAsync(RedisKey key, RedisValue value) => await (_redisServerConnector?.Connection?.GetDatabase()?.StringSetAsync(key, value) ?? Task.CompletedTask);
+		public async Task SetAsync(RedisKey key, RedisValue value) => await _redisServerConnector.Connection.GetDatabase().StringSetAsync(key, value);
 		#endregion
 	}
 }
