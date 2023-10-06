@@ -43,22 +43,22 @@ namespace RedisClient.MVVMCross.ViewModel
 
 		public IMvxCommand ConnectCommand { get; }
 		public IMvxCommand DisconnectCommand { get; }
-
 		#endregion
 
 		#region Event Handlers
 		private async Task Connect()
 		{
 			await (_redisServerConnector?.ConnectAsync(IpAddress ?? "", Port) ?? Task.CompletedTask);
-			_messenger?.Publish<ConnectionChanged>(new ConnectionChanged(this));
+			_messenger?.Publish(new StatusChanged(this, "Connected"));
+			_messenger?.Publish(new ConnectControlClicked(this));
 		}
 
 		private async Task Disconnect()
 		{
 			await (_redisServerConnector?.DisconnectAsync() ?? Task.CompletedTask);
-			_messenger?.Publish<ConnectionChanged>(new ConnectionChanged(this));
+			_messenger?.Publish(new StatusChanged(this, "Disconnected"));
+			_messenger?.Publish(new ConnectControlClicked(this));
 		}
-
 		#endregion
 	}
 }

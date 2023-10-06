@@ -1,4 +1,5 @@
 ﻿using MvvmCross.Commands;
+using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
 using RedisClient.Core;
 using StackExchange.Redis;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RedisClient.MVVMCross.ViewModel
 {
-	public sealed class CacheContentViewModel : MvxViewModel
+    public sealed class CacheContentViewModel : MvxViewModel
 	{
 		#region Fields
 		private readonly ICacheReader _cacheReader;
@@ -16,11 +17,13 @@ namespace RedisClient.MVVMCross.ViewModel
 		private MvxObservableCollection<KeyValuePair<RedisKey, RedisValue>> _cacheContent;
 		private KeyValuePair<RedisKey, RedisValue> _selectedCacheContent;
 		private string? _valueToAdd;
+		private IMvxMessenger? _messenger;
 		#endregion
 
 		#region Ctor
-		public CacheContentViewModel(IRedisServerConnector redisServerConnector, ICacheReader cacheReader, ICacheWriter cacheWriter)
+		public CacheContentViewModel(IMvxMessenger messenger,IRedisServerConnector redisServerConnector, ICacheReader cacheReader, ICacheWriter cacheWriter)
 		{
+			_messenger = messenger;
 			_cacheReader = cacheReader;
 			_cacheWriter = cacheWriter;
 			CacheContent = new MvxObservableCollection<KeyValuePair<RedisKey, RedisValue>>();
@@ -50,12 +53,14 @@ namespace RedisClient.MVVMCross.ViewModel
 		{
 			await _cacheWriter.RemoveAsync(SelectedCacheContent.Key);
 			await Refresh();
+			_messenger?.Publish(new StatusChanged(this, "Deleted key/value"));
 		}
 
 		private async Task Add()
 		{
 			await _cacheWriter.SetAsync(KeyToAdd, ValueToAdd);
 			await Refresh();
+			_messenger?.Publish(new StatusChanged(this, "Added new key/value"));
 		}
 
 		public KeyValuePair<RedisKey, RedisValue> SelectedCacheContent

@@ -34,6 +34,7 @@ namespace RedisClient.UI
 			instance.ConstructAndRegisterSingleton(typeof(ConnectionViewModel));
 			instance.ConstructAndRegisterSingleton(typeof(ServerStatusViewModel));
 			instance.ConstructAndRegisterSingleton(typeof(CacheContentViewModel));
+			instance.ConstructAndRegisterSingleton(typeof(StatusPanelViewModel));	
 			instance.ConstructAndRegisterSingleton(typeof(CompositeViewModel));
 		}
 	}

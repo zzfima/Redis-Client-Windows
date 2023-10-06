@@ -8,7 +8,7 @@
     <GroupBox Header="Connection">
         <StackPanel Orientation="Vertical">
 
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                 <Label>IP Address:</Label>
                 <TextBox>
                     <TextBox.Text>
@@ -21,7 +21,7 @@
                 </TextBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
                 <Label>Port:</Label>
                 <TextBox>
                     <TextBox.Text>

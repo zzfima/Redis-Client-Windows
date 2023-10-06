@@ -10,14 +10,20 @@ namespace RedisClient.MVVMCross.ViewModel
 		private ConnectionViewModel? _connectionViewModel;
 		private ServerStatusViewModel? _serverStatusViewModel;
 		private CacheContentViewModel? _cacheContentViewModel;
+		private StatusPanelViewModel? _statusPanelViewModel;
 		#endregion
 
 		#region Ctor
-		public CompositeViewModel(ConnectionViewModel connectionViewModel, ServerStatusViewModel serverStatusViewMode, CacheContentViewModel cacheContentViewModel)
+		public CompositeViewModel(
+			ConnectionViewModel connectionViewModel,
+			ServerStatusViewModel serverStatusViewMode,
+			CacheContentViewModel cacheContentViewModel,
+			StatusPanelViewModel statusPanelViewModel)
 		{
 			ConnectionViewModel = connectionViewModel;
 			ServerStatusViewModel = serverStatusViewMode;
 			CacheContentViewModel = cacheContentViewModel;
+			StatusPanelViewModel = statusPanelViewModel;
 		}
 		#endregion
 
@@ -38,6 +44,12 @@ namespace RedisClient.MVVMCross.ViewModel
 		{
 			get => _cacheContentViewModel;
 			set => SetProperty(ref _cacheContentViewModel, value);
+		}
+
+		public StatusPanelViewModel? StatusPanelViewModel
+		{
+			get => _statusPanelViewModel;
+			set => SetProperty(ref _statusPanelViewModel, value);
 		}
 		#endregion
 	}

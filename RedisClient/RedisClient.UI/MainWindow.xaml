@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Width="750"
-        Height="500"
+        Height="450"
         Title="MainWindow">
     <Window.Resources>
         <ResourceDictionary>
@@ -19,17 +19,20 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid DockPanel.Dock="Top">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <view:ConnectionView Grid.Column="0" Grid.Row="0" Margin="10" DataContext="{Binding ConnectionViewModel}"/>
-        <view:ServerStatusView Grid.Column="0" Grid.Row="1" Margin="10" DataContext="{Binding ServerStatusViewModel}"/>
-        <view:CacheContentView Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="10" DataContext="{Binding CacheContentViewModel}"/>
-    </Grid>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <view:ConnectionView Grid.Column="0" Grid.Row="0" Margin="10" DataContext="{Binding ConnectionViewModel}"/>
+            <view:ServerStatusView Grid.Column="0" Grid.Row="1" Margin="10" DataContext="{Binding ServerStatusViewModel}"/>
+            <view:CacheContentView Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="10" DataContext="{Binding CacheContentViewModel}"/>
+        </Grid>
+        <view:StatusPanelView Height="20" DockPanel.Dock="Bottom" DataContext="{Binding StatusPanelViewModel}"/>
+    </DockPanel>
 </Window>
