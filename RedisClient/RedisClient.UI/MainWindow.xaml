@@ -8,6 +8,7 @@
         ResizeMode="NoResize"
         Width="750"
         Height="450"
+        Icon="Images\redis_original_logo_icon_146368.ico"
         Title="Redis Cache client">
     <Window.Resources>
         <ResourceDictionary>

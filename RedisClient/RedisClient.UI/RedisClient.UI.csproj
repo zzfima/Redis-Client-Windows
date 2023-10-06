@@ -8,7 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\redis_original_logo_icon_146368.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\RedisClient.MVVMCross\RedisClient.MVVMCross.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\redis_original_logo_icon_146368.ico" />
   </ItemGroup>
 
 </Project>
