@@ -50,7 +50,7 @@ namespace RedisClient.MVVMCross.ViewModel
         {
             try
             {
-                await (_redisServerConnector?.ConnectAsync(IpAddress ?? "", Port) ?? Task.CompletedTask);
+                await _redisServerConnector.ConnectAsync(IpAddress, Port);
                 _messenger?.Publish(new StatusChanged(this, "Connected"));
             }
             catch (System.Exception)
@@ -64,12 +64,12 @@ namespace RedisClient.MVVMCross.ViewModel
         {
             try
             {
-                await (_redisServerConnector?.DisconnectAsync() ?? Task.CompletedTask);
+                await _redisServerConnector.DisconnectAsync();
                 _messenger?.Publish(new StatusChanged(this, "Disconnected"));
             }
             catch (System.Exception)
             {
-                _messenger?.Publish(new StatusChanged(this, "Can not connect. Please check connection details"));
+                _messenger?.Publish(new StatusChanged(this, "Can not Disconnect. Please check connection details"));
             }
 
             _messenger?.Publish(new ConnectControlClicked(this));

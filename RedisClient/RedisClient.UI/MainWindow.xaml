@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         Width="750"
         Height="450"
-        Title="MainWindow">
+        Title="Redis Cache client">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

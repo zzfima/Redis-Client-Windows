@@ -11,7 +11,7 @@ namespace RedisClient.Core
 		#endregion
 
 		#region Methods
-		public async Task DisconnectAsync() => await (Connection?.DisposeAsync() ?? ValueTask.CompletedTask);
+		public async Task DisconnectAsync() => await Connection.DisposeAsync();
 
 		public async Task ConnectAsync(string ipAddress, int port)
 		{
