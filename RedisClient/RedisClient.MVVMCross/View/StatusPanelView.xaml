@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RedisClient.MVVMCross.View"
              mc:Ignorable="d" 
              >
-    <StackPanel Background="LightBlue">
-        <TextBlock Text="{Binding Status}"/>
+    <StackPanel Background="LightBlue" Height="25">
+        <TextBlock Text="{Binding Status}" Margin="5"/>
     </StackPanel>
 </UserControl>
