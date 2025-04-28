@@ -14,7 +14,7 @@ namespace RedisClient.MVVMCross.Validation
 			if (!parsed)
 				return new ValidationResult(false, "Port must be a number");
 
-			if (portValue < 0 || portValue > 9999)
+			if (portValue < 0 || portValue > 99999)
 				return new ValidationResult(false, "Port value can not be less than 0 or more than 9999.");
 
 			return ValidationResult.ValidResult;
