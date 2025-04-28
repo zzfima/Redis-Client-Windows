@@ -29,12 +29,13 @@ namespace RedisClient.UI
 			instance.ConstructAndRegisterSingleton<ICacheServerMetricsReader, CacheServerMetricsReader>();
 			instance.ConstructAndRegisterSingleton<ICacheWriter, CacheWriter>();
 			instance.ConstructAndRegisterSingleton<ICacheReader, CacheReader>();
+			instance.ConstructAndRegisterSingleton<IIDReader, IDReader>();
 
 			//ViewModels
 			instance.ConstructAndRegisterSingleton(typeof(ConnectionViewModel));
 			instance.ConstructAndRegisterSingleton(typeof(ServerStatusViewModel));
 			instance.ConstructAndRegisterSingleton(typeof(CacheContentViewModel));
-			instance.ConstructAndRegisterSingleton(typeof(StatusPanelViewModel));	
+			instance.ConstructAndRegisterSingleton(typeof(StatusPanelViewModel));
 			instance.ConstructAndRegisterSingleton(typeof(CompositeViewModel));
 		}
 	}

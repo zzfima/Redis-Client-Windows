@@ -18,7 +18,7 @@ namespace RedisClient.MVVMCross.ViewModel
         #region Ctor
         public ConnectionViewModel(IMvxMessenger messenger, IRedisServerConnector redisServerConnector)
         {
-            IpAddress = "172.18.179.119";
+            IpAddress = "127.0.0.1";
             Port = 6379;
             _messenger = messenger;
             _redisServerConnector = redisServerConnector;

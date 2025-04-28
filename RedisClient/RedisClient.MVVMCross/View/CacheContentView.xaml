@@ -15,6 +15,10 @@
                 <TextBox Margin="2" Text="{Binding Path=ValueToAdd}" Width="50"/>
                 <Button Margin="2" Command="{Binding Path=AddCommand}" Width="120">Add to cache</Button>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBox Margin="2" Text="{Binding Path=GeneratedID}" Width="50" IsReadOnly="True"/>
+                <Button Margin="2" Command="{Binding Path=GetIDCommand}" Width="120">Get Next ID</Button>
+            </StackPanel>
 
             <ListBox ItemsSource="{Binding Path=CacheContent}"
                      SelectedItem="{Binding SelectedCacheContent}"
