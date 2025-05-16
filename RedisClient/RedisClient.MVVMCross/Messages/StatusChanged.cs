@@ -1,4 +1,4 @@
-﻿namespace RedisClient.MVVMCross
+﻿namespace RedisClient.MVVMCross.Messages
 {
 	public class StatusChanged : MvvmCross.Plugin.Messenger.MvxMessage
 	{
