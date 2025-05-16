@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace RedisClient.Core
+namespace RedisClient.Core.Interfaces
 {
 	public interface IIDReader
 	{

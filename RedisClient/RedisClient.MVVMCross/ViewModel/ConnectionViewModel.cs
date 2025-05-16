@@ -1,7 +1,7 @@
 ﻿using MvvmCross.Commands;
 using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
-using RedisClient.Core;
+using RedisClient.Core.Interfaces;
 using System.Threading.Tasks;
 
 namespace RedisClient.MVVMCross.ViewModel

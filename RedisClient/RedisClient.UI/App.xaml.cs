@@ -2,6 +2,7 @@
 using MvvmCross.IoC;
 using MvvmCross.Plugin.Messenger;
 using RedisClient.Core;
+using RedisClient.Core.Interfaces;
 using RedisClient.MVVMCross.ViewModel;
 using System.Windows;
 

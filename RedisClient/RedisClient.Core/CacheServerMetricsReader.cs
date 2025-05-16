@@ -1,4 +1,5 @@
-﻿using StackExchange.Redis;
+﻿using RedisClient.Core.Interfaces;
+using StackExchange.Redis;
 
 namespace RedisClient.Core
 {

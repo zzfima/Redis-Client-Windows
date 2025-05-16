@@ -1,4 +1,5 @@
 using RedisClient.Core;
+using RedisClient.Core.Interfaces;
 
 namespace RedisClient.Test
 {
