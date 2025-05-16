@@ -4,12 +4,12 @@ namespace RedisClient.Core
 {
 	public sealed class IDReader : IIDReader
 	{
-		private readonly IRedisServerConnector _redisServerConnector;
+		private readonly ICacheServerConnector _redisServerConnector;
 		#region Fields
 		private IDatabase _redisServerDb;
 		#endregion
 
-		public IDReader(IRedisServerConnector redisServerConnector)
+		public IDReader(ICacheServerConnector redisServerConnector)
 		{
 			_redisServerConnector = redisServerConnector;
 		}

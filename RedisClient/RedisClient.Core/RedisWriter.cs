@@ -2,11 +2,11 @@
 
 namespace RedisClient.Core
 {
-	public sealed class CacheWriter : ICacheWriter
+	public sealed class RedisWriter : ICacheWriter
 	{
-		private readonly IRedisServerConnector _redisServerConnector;
+		private readonly ICacheServerConnector _redisServerConnector;
 
-		public CacheWriter(IRedisServerConnector redisServerConnector)
+		public RedisWriter(ICacheServerConnector redisServerConnector)
 		{
 			_redisServerConnector = redisServerConnector;
 		}

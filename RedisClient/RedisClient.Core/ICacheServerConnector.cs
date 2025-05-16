@@ -2,7 +2,7 @@
 
 namespace RedisClient.Core
 {
-	public interface IRedisServerConnector
+	public interface ICacheServerConnector
 	{
 		ConnectionMultiplexer? Connection { get; }
 		Task ConnectAsync(string ipAddress, int port);

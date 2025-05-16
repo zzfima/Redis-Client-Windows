@@ -12,11 +12,11 @@ namespace RedisClient.MVVMCross.ViewModel
         private string? _ipAddress;
         private int _port;
         private IMvxMessenger? _messenger;
-        private IRedisServerConnector? _redisServerConnector;
+        private ICacheServerConnector? _redisServerConnector;
         #endregion
 
         #region Ctor
-        public ConnectionViewModel(IMvxMessenger messenger, IRedisServerConnector redisServerConnector)
+        public ConnectionViewModel(IMvxMessenger messenger, ICacheServerConnector redisServerConnector)
         {
             IpAddress = "127.0.0.1";
             Port = 6379;

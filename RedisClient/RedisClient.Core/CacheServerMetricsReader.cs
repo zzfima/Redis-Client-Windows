@@ -5,10 +5,10 @@ namespace RedisClient.Core
 	public sealed class CacheServerMetricsReader : ICacheServerMetricsReader
 	{
 		#region Fields
-		private IRedisServerConnector? _redisServerConnector;
+		private ICacheServerConnector? _redisServerConnector;
         #endregion
 
-        public CacheServerMetricsReader(IRedisServerConnector redisServerConnector)
+        public CacheServerMetricsReader(ICacheServerConnector redisServerConnector)
         {
             _redisServerConnector = redisServerConnector;
         }

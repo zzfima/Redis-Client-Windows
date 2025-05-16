@@ -9,7 +9,7 @@ namespace RedisClient.MVVMCross.ViewModel
     public sealed class ServerStatusViewModel : MvxViewModel
 	{
 		private string? _isConnected;
-		private IRedisServerConnector? _redisServerConnector;
+		private ICacheServerConnector? _redisServerConnector;
 		private ICacheServerMetricsReader? _cacheServerMetricsReader;
 		private IMvxMessenger? _messenger;
 		private MvxSubscriptionToken? _token;
@@ -17,7 +17,7 @@ namespace RedisClient.MVVMCross.ViewModel
 		private int? _databaseCount;
 		private ServerType? _serverType;
 
-		public ServerStatusViewModel(IMvxMessenger? messenger, IRedisServerConnector redisServerConnector, ICacheServerMetricsReader cacheServerMetricsReader)
+		public ServerStatusViewModel(IMvxMessenger? messenger, ICacheServerConnector redisServerConnector, ICacheServerMetricsReader cacheServerMetricsReader)
 		{
 			IsConnected = "";
 

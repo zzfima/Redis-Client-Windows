@@ -2,13 +2,13 @@
 
 namespace RedisClient.Core
 {
-	public sealed class CacheReader : ICacheReader
+	public sealed class RedisReader : ICacheReader
 	{
 		#region Fields
-		private IRedisServerConnector _redisServerConnector;
+		private ICacheServerConnector _redisServerConnector;
 		#endregion
 
-		public CacheReader(IRedisServerConnector redisServerConnector)
+		public RedisReader(ICacheServerConnector redisServerConnector)
 		{
 			_redisServerConnector = redisServerConnector;
 		}

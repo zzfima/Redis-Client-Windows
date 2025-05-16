@@ -8,7 +8,7 @@ namespace RedisClient.Test
 		[TestMethod]
 		public async Task TestRedisConnection()
 		{
-			IRedisServerConnector redisServerConnector = new RedisServerConnector();
+			ICacheServerConnector redisServerConnector = new RedisServerConnector();
 			Assert.IsNotNull(redisServerConnector);
 			await redisServerConnector.ConnectAsync("127.0.0.1", 6379);
 
@@ -22,11 +22,11 @@ namespace RedisClient.Test
 		[TestMethod]
 		public async Task TestRedisWriteRead()
 		{
-			IRedisServerConnector redisServerConnector = new RedisServerConnector();
+			ICacheServerConnector redisServerConnector = new RedisServerConnector();
 			await redisServerConnector.ConnectAsync("127.0.0.1", 6379);
 
-			ICacheWriter cacheWriter = new CacheWriter(redisServerConnector);
-			ICacheReader cacheReader = new CacheReader(redisServerConnector);
+			ICacheWriter cacheWriter = new RedisWriter(redisServerConnector);
+			ICacheReader cacheReader = new RedisReader(redisServerConnector);
 
 			await cacheWriter.SetAsync("hello11", "world11");
 			var res1 = await cacheReader.GetAsync("hello11");
@@ -44,11 +44,11 @@ namespace RedisClient.Test
 		[TestMethod]
 		public async Task TestRedisGetAllKeys()
 		{
-			IRedisServerConnector redisServerConnector = new RedisServerConnector();
+			ICacheServerConnector redisServerConnector = new RedisServerConnector();
 			await redisServerConnector.ConnectAsync("127.0.0.1", 6379);
 
-			ICacheWriter cacheWriter = new CacheWriter(redisServerConnector);
-			ICacheReader cacheReader = new CacheReader(redisServerConnector);
+			ICacheWriter cacheWriter = new RedisWriter(redisServerConnector);
+			ICacheReader cacheReader = new RedisReader(redisServerConnector);
 
 			await cacheWriter.SetAsync("hello11", "world11");
 			await cacheWriter.SetAsync("hello12", "world12");

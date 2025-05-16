@@ -2,7 +2,7 @@
 
 namespace RedisClient.Core
 {
-	public sealed class RedisServerConnector : IRedisServerConnector
+	public sealed class RedisServerConnector : ICacheServerConnector
 	{
 		#region Properties
 		public ConnectionMultiplexer? Connection { get; private set; }
