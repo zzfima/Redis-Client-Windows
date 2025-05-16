@@ -2,6 +2,7 @@
 using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
 using RedisClient.Core.Interfaces;
+using RedisClient.MVVMCross.Messages;
 using StackExchange.Redis;
 using System.Collections.Generic;
 using System.Threading.Tasks;
