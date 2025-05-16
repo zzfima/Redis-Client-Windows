@@ -3,13 +3,13 @@ using StackExchange.Redis;
 
 namespace RedisClient.Core
 {
-	public sealed class CacheServerMetricsReader : ICacheServerMetricsReader
+	public sealed class RedisMetricsReader : ICacheServerMetricsReader
 	{
 		#region Fields
 		private ICacheServerConnector? _redisServerConnector;
         #endregion
 
-        public CacheServerMetricsReader(ICacheServerConnector redisServerConnector)
+        public RedisMetricsReader(ICacheServerConnector redisServerConnector)
         {
             _redisServerConnector = redisServerConnector;
         }

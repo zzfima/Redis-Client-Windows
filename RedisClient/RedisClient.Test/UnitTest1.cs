@@ -9,11 +9,11 @@ namespace RedisClient.Test
 		[TestMethod]
 		public async Task TestRedisConnection()
 		{
-			ICacheServerConnector redisServerConnector = new RedisServerConnector();
+			ICacheServerConnector redisServerConnector = new RedisConnector();
 			Assert.IsNotNull(redisServerConnector);
 			await redisServerConnector.ConnectAsync("127.0.0.1", 6379);
 
-			ICacheServerMetricsReader cacheServerMetricsReader = new CacheServerMetricsReader(redisServerConnector);
+			ICacheServerMetricsReader cacheServerMetricsReader = new RedisMetricsReader(redisServerConnector);
 
 			Assert.IsTrue(cacheServerMetricsReader.IsConnected);
 			await redisServerConnector.DisconnectAsync();
@@ -23,11 +23,11 @@ namespace RedisClient.Test
 		[TestMethod]
 		public async Task TestRedisWriteRead()
 		{
-			ICacheServerConnector redisServerConnector = new RedisServerConnector();
+			ICacheServerConnector redisServerConnector = new RedisConnector();
 			await redisServerConnector.ConnectAsync("127.0.0.1", 6379);
 
-			ICacheWriter cacheWriter = new RedisWriter(redisServerConnector);
-			ICacheReader cacheReader = new RedisReader(redisServerConnector);
+			ICacheWriter cacheWriter = new RedisDataWriter(redisServerConnector);
+			ICacheReader cacheReader = new RedisDataReader(redisServerConnector);
 
 			await cacheWriter.SetAsync("hello11", "world11");
 			var res1 = await cacheReader.GetAsync("hello11");
@@ -45,11 +45,11 @@ namespace RedisClient.Test
 		[TestMethod]
 		public async Task TestRedisGetAllKeys()
 		{
-			ICacheServerConnector redisServerConnector = new RedisServerConnector();
+			ICacheServerConnector redisServerConnector = new RedisConnector();
 			await redisServerConnector.ConnectAsync("127.0.0.1", 6379);
 
-			ICacheWriter cacheWriter = new RedisWriter(redisServerConnector);
-			ICacheReader cacheReader = new RedisReader(redisServerConnector);
+			ICacheWriter cacheWriter = new RedisDataWriter(redisServerConnector);
+			ICacheReader cacheReader = new RedisDataReader(redisServerConnector);
 
 			await cacheWriter.SetAsync("hello11", "world11");
 			await cacheWriter.SetAsync("hello12", "world12");

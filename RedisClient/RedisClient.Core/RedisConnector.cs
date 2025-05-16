@@ -3,7 +3,7 @@ using StackExchange.Redis;
 
 namespace RedisClient.Core
 {
-	public sealed class RedisServerConnector : ICacheServerConnector
+	public sealed class RedisConnector : ICacheServerConnector
 	{
 		#region Properties
 		public ConnectionMultiplexer? Connection { get; private set; }

@@ -3,11 +3,11 @@ using StackExchange.Redis;
 
 namespace RedisClient.Core
 {
-	public sealed class RedisWriter : ICacheWriter
+	public sealed class RedisDataWriter : ICacheWriter
 	{
 		private readonly ICacheServerConnector _redisServerConnector;
 
-		public RedisWriter(ICacheServerConnector redisServerConnector)
+		public RedisDataWriter(ICacheServerConnector redisServerConnector)
 		{
 			_redisServerConnector = redisServerConnector;
 		}
